@@ -32,6 +32,9 @@ public class GameDetails {
 	private static int hour;
 	private static int minutes;
 
+	/**
+	 * Shows the Input Text on the Console
+	 */
 	public static void input(){
 		Scanner scan = new Scanner(System.in);
 		System.out.println("||==========================================================================||");
@@ -64,12 +67,16 @@ public class GameDetails {
 		}
 		
 	}
-	
+	/**
+	 * Computing the Time
+	 */
 	public static void computeData() {
 		hour = totalTimeSpent/ 60;
 		minutes = totalTimeSpent - hour * 60;
 	}
-	
+	/**
+	 * Processing the Result
+	 */
 	public static void processData() {
 		String item[] = currentInput.split(":");
 		title[numberOfInput] = item[0];
@@ -86,6 +93,10 @@ public class GameDetails {
 			}
 		}
 	}
+	/**
+	 * Validating the inputs
+	 * @return
+	 */
 	public static boolean validate(){
 		String item[] = currentInput.split(":");
 		
@@ -129,7 +140,9 @@ public class GameDetails {
 		return isValid;
 	}
 	
-	
+	/**
+	 * Outputs in the Console
+	 */
 	public static void output(){
 		System.out.println("");
 		System.out.println("Player: " + username);
@@ -143,7 +156,10 @@ public class GameDetails {
 		System.out.println("Invalid Entries: " + invalidEntries);
 		System.out.println("The Highest Score Achievement: " + highestScore);
 	}
-	
+	/**
+	 * Generates Wireframe for HTML 
+	 * @throws IOException
+	 */
 	public static void generateHtml() throws IOException{		
 		File file = new File("output.html");
 		PrintWriter output = new PrintWriter(file);
@@ -156,7 +172,10 @@ public class GameDetails {
 		output.println("<h4>The Highest Score Achievement: " + highestScore + "</h4>");
 		output.close();
 	}
-	
+	/**
+	 * Generates HTML Page
+	 * @throws IOException
+	 */
 	public static void generateForHtml() throws IOException{		
 		File file = new File("output2.html");
 		PrintWriter output = new PrintWriter(file);
@@ -204,7 +223,11 @@ public class GameDetails {
 		output.close();
 		
 	}
-	
+	/**
+	 * Loads the HTML Page
+	 * @return String as a markkup for html
+	 * @throws IOException
+	 */
 	public static String loadHtml() throws IOException{
 			StringBuilder sb = new StringBuilder(512); 
 			try { 
@@ -218,7 +241,10 @@ public class GameDetails {
 					}
 			return sb.toString(); 		
 	}
-	
+	/**
+	 * Initialize Swing
+	 * @throws IOException
+	 */
 	public static void initGUI() throws IOException{
 	    JFrame frame = new JFrame("Game Details");
 	    JTextPane textPane = new JTextPane();	
@@ -236,7 +262,11 @@ public class GameDetails {
 	    textPane.setSize(200, 200);
 	    frame.pack();
 	}
-	
+	/**
+	 * The Main Method of Java
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		input();
